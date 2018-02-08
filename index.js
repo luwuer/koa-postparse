@@ -33,6 +33,7 @@ module.exports = async function (ctx, next) {
       })
       ctx.req.addListener('end', function () {
         let parseData = parseReqStr(postdata)
+        ctx.submitstring = ctx.request.submitstring = postdata
         ctx.submit = ctx.request.submit = parseData
         resolve(parseData)
       })
