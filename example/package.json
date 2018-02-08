@@ -1,0 +1,27 @@
+{
+  "name": "postpares.test",
+  "version": "1.0.0",
+  "description": "...",
+  "author": "luwuer <html6@foxmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "lint": "eslint --ext .js,.vue src",
+    "build": "node build/build.js"
+  },
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-postparse": "^1.0.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
