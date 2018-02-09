@@ -38,6 +38,7 @@ module.exports = async function (ctx, next) {
         resolve(parseData)
       })
     } catch (err) {
+      console.log(err)
       reject(err)
     }
   })

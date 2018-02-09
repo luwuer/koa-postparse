@@ -1,12 +1,14 @@
 ## koa-postparse
-koa-postparse middleware can parse koa(Node.js) POST params which is like `'name=luwuer&age=18'` to JSON`{name: 'luwuer', age: 18}`,and store the parsed data into `ctx.submit/ctx.request.submit`. So that you can use data just like GET do. 
+koa-postparse middleware can parse koa(Node.js) POST params. 
 
-And alse you can call `ctx.submitstring/ctx.request.submitstring` to get the primary string data.
+As if String `'name=luwuer&age=18'` or JSON`{name: 'luwuer', age: 18}`.
 
----
-该中间件用于把koa(Node.js) POST请求传递的参数(`'name=luwuer&age=18'`)转换为JSON格式的参数(`{name: 'luwuer', age: 18}`)，并且把转换后的参数存储在`ctx.submit/ctx.request.submit`，保持和GET请求一致的格式，方便使用者调用。
+And store the parsed data into ctx.submitstring/ctx.request.submitstring or ctx.submit/ctx.request.submit, so that you can use data just like GET do. 
 
-当然，如果你想获取字符串数据，调用`ctx.submitstring/ctx.request.submitstring`就行了。
+
+该中间件用于把koa(Node.js) POST请求传递的参数解析为String或JSON，并且调用原则遵循GET请求：
+- 获取String格式参数：`ctx.submitstring/ctx.request.submitstring //'name=luwuer&age=18'`
+- 获取JSON格式参数：`ctx.submitstring/ctx.request.submitstring //{name: 'luwuer', age: 18}`
 
 
 ## Installation

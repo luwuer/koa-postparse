@@ -38,10 +38,12 @@ module.exports = async function (ctx, next) {
   //       resolve(parseData)
   //     })
   //   } catch (err) {
+  //     console.log(err)
   //     reject(err)
   //   }
   // })
   // return pm.then(async data => {
+  //   ctx.submitstring = ctx.request.submitstring = postdata
   //   ctx.submit = ctx.request.submit = data
   //   await next()
   // })
@@ -55,10 +57,12 @@ module.exports = async function (ctx, next) {
       })
       ctx.req.addListener('end', function () {
         let parseData = parseReqStr(postdata)
+        ctx.submitstring = ctx.request.submitstring = postdata
         ctx.submit = ctx.request.submit = parseData
         resolve(parseData)
       })
     } catch (err) {
+      console.log(err)
       reject(err)
     }
   })
