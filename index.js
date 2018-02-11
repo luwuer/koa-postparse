@@ -63,7 +63,8 @@ let toJson = {
     let parsed = {}
     reqStr.split('&').forEach(item => {
       let itemList = item.split('=')
-      parsed[decodeURIComponent(itemList[0])] = decodeURIComponent(itemList[1])
+      if (itemList.length === 2)
+        parsed[decodeURIComponent(itemList[0])] = decodeURIComponent(itemList[1])
     })
     return parsed
   }

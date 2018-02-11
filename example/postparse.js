@@ -63,7 +63,8 @@ let toJson = {
     let parsed = {}
     reqStr.split('&').forEach(item => {
       let itemList = item.split('=')
-      parsed[decodeURIComponent(itemList[0])] = decodeURIComponent(itemList[1])
+      if (itemList.length === 2)
+        parsed[decodeURIComponent(itemList[0])] = decodeURIComponent(itemList[1])
     })
     return parsed
   }
@@ -104,6 +105,7 @@ module.exports = async function (ctx, next) {
   if (ctx.method !== 'POST') return await next()
   if (ctx.submit !== undefined || ctx.request.submit !== undefined) return await next()
 
+  console.log(ctx)
   // 等待参数解析完成(By then)
   // let pm = new Promise((resolve, reject) => {
   //   let postdata = ''

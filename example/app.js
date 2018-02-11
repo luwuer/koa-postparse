@@ -9,8 +9,8 @@
 'use strict'
 
 const Koa = require('koa')
-const parsePostData = require('koa-postparse')
-// const parsePostData = require('./postparse')
+// const parsePostData = require('koa-postparse')
+const parsePostData = require('./postparse')
 
 const app = new Koa()
 
@@ -29,7 +29,10 @@ app.use(async ctx => {
     `
     ctx.body = html
   } else if (ctx.method === 'POST') {
-    ctx.body = ctx.submit
+    ctx.body = {
+      'ctx.submit': ctx.submit,
+      'ctx.submitstring': ctx.submitstring,
+    }
     // ctx.body = ctx.request.submit
   } else {
     ctx.body = '<h1>404~</h1>'
